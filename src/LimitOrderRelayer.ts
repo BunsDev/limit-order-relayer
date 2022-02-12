@@ -15,7 +15,7 @@ export class LimitOrderRelayer {
   // parameterize the following for easier testing
   public chainId: number;
   public LimitOrderUpdates: (a: IWatchPair[]) => Observable<ILimitOrder>;
-  public SushiswapPairUpdates: (a: IWatchPair[]) => Observable<PriceUpdate[]>;
+  public SwapPairUpdates: (a: IWatchPair[]) => Observable<PriceUpdate[]>;
   public executeOrders: (a: ExecutableOrder[], gasPrice: BigNumber) => Promise<IExecutedOrder[]>;
   public refreshGroupOrderStatus: (pairLimitOrders: ILimitOrder[][][]) => Promise<ILimitOrder[][][]>;
   public database: Database;
@@ -33,7 +33,7 @@ export class LimitOrderRelayer {
   ) {
     this.chainId = chainId;
     this.LimitOrderUpdates = orderUpdates;
-    this.SushiswapPairUpdates = pairUpdates;
+    this.SwapPairUpdates = pairUpdates;
     this.executeOrders = executeOrders;
     this.refreshGroupOrderStatus = refreshGroupOrderStatus;
     this.database = database;
@@ -61,7 +61,7 @@ export class LimitOrderRelayer {
 
 
     // subscribe to price updates of pools & execute orders
-    this.SushiswapPairUpdates(watchPairs).subscribe(async (priceUpdates: PriceUpdate[]) => {
+    this.SwapPairUpdates(watchPairs).subscribe(async (priceUpdates: PriceUpdate[]) => {
 
       const networkPrices: { gasPrice: BigNumber, token0EthPrice: BigNumber, token1EthPrice: BigNumber }[] = [];
 

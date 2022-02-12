@@ -2,7 +2,7 @@ export default [
   {
     inputs: [
       { internalType: 'contract IStopLimitOrder', name: '_stopLimitOrder', type: 'address' },
-      { internalType: 'contract IBentoBoxV1', name: '_bentoBox', type: 'address' },
+      { internalType: 'contract ICoffinBox', name: '_coffinBox', type: 'address' },
       { internalType: 'address', name: '_factory', type: 'address' },
       { internalType: 'bytes32', name: '_pairCodeHash', type: 'bytes32' },
     ],
@@ -11,8 +11,8 @@ export default [
   },
   {
     inputs: [],
-    name: 'bentoBox',
-    outputs: [{ internalType: 'contract IBentoBoxV1', name: '', type: 'address' }],
+    name: 'coffinBox',
+    outputs: [{ internalType: 'contract ICoffinBox', name: '', type: 'address' }],
     stateMutability: 'view',
     type: 'function',
   },
@@ -55,7 +55,7 @@ export default [
         components: [
           { internalType: 'uint256', name: 'filledAmount', type: 'uint256' },
           { internalType: 'bool', name: 'cancelled', type: 'bool' },
-          { internalType: 'uint256', name: 'makersBentoBalance', type: 'uint256' },
+          { internalType: 'uint256', name: 'makersCoffinBalance', type: 'uint256' },
           { internalType: 'bool', name: 'approvedMasterContract', type: 'bool' },
         ],
         internalType: 'struct Helper.OrderUserInfo[]',

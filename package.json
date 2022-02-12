@@ -1,5 +1,5 @@
 {
-  "name": "sushi-relayer",
+  "name": "soul-relayer",
   "version": "1.0.0",
   "description": "",
   "main": "dist/src/index.js",
@@ -8,16 +8,14 @@
     "build": "tsc",
     "start": "tsc && node dist/index.js",
     "copy-remote": "tsc && node dist/database/copy-remote.js",
-    "forever-polygon": "git fetch --all && git reset --hard origin/polygon-deployment && true > error.log && true > out.log && tsc && forever start forever/polygon.json"
+    "forever-polygon": "git fetch --all && git reset --hard origin/polygon-deployment && true > error.log && true > out.log && tsc && forever start forever/polygon.json",
+    "forever-fantom": "git fetch --all && git reset --hard origin/fantom-deployment && true > error.log && true > out.log && tsc && forever start forever/fantom.json"
   },
   "keywords": [],
-  "author": "",
+  "author": "0xbuns",
   "license": "MIT",
   "devDependencies": {
     "@ethersproject/experimental": "^5.3.0",
-    "@sushiswap/core-sdk": "1.0.0-canary.57",
-    "@sushiswap/default-token-list": "^22.4.4",
-    "@sushiswap/limit-order-sdk": "1.0.0-canary.43",
     "@sushiswap/prettier-config": "^0.1.0",
     "@types/chai": "^4.2.18",
     "@types/mocha": "^8.2.2",

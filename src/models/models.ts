@@ -1,6 +1,6 @@
-import { ChainId } from '@sushiswap/core-sdk'
-import { ILimitOrderData } from '@sushiswap/limit-order-sdk'
 import { Document } from 'mongoose'
+import { ChainId } from '../utils/constants';
+import { ILimitOrderData } from '../utils/limitOrderData';
 
 export interface IWatchPair {
   token0: {

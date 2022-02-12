@@ -1,11 +1,11 @@
 import { fetchLimitOrderPairs } from '../relayer-config/pairs'
 import { IWatchPair } from '../models/models'
-import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
-import { ChainId } from '@sushiswap/core-sdk'
+import DEFAULT_TOKEN_LIST from '../abis/tokenList.json'
 import { getPairAddress } from '../utils/pairAddress'
 import { MyProvider } from '../utils/myProvider'
 import { getPoolBalances } from './pairUpdates'
 import { MyLogger } from '../utils/myLogger'
+import { ChainId } from '../utils/constants'
 
 interface IToken {
   chainId: number

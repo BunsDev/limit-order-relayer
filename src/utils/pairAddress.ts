@@ -1,7 +1,7 @@
 import { ethers } from 'ethers'
 import { isLessThan } from './orderTokens'
 
-// Calculate the Sushiswap pool contract address for two given tokens
+// Calculate the SoulSwap pool contract address for two given tokens
 export function getPairAddress(token0: string, token1: string): string {
   // sort tokens so token0 < token1 always holds true
   if (!isLessThan(token0, token1)) {

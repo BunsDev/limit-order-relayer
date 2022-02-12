@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import { validateEnv } from './utils/validateEnv';
 import { refreshGroupOrderStatus } from './orders/validOrders';
 import { NetworkPrices } from './utils/networkPrices';
-import { watchSushiwapPairs } from './pairs/pairUpdates';
+import { watchSwapPairs } from './pairs/pairUpdates';
 
 dotenv.config();
 
@@ -15,7 +15,7 @@ validateEnv();
 new LimitOrderRelayer(
   +process.env.CHAINID,
   watchLimitOrders,
-  watchSushiwapPairs,
+  watchSwapPairs,
   executeOrders,
   refreshGroupOrderStatus,
   Database.Instance,

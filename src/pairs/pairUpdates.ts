@@ -25,7 +25,7 @@ export interface PriceUpdate {
   }
 }
 
-export function watchSushiwapPairs(watchPairs: IWatchPair[]): Observable<PriceUpdate[]> {
+export function watchSwapPairs(watchPairs: IWatchPair[]): Observable<PriceUpdate[]> {
   const provider = MyProvider.Instance.provider
 
   const updates = new Subject<PriceUpdate[]>()

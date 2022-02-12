@@ -1,10 +1,10 @@
-import { ILimitOrderData, LimitOrder } from '@sushiswap/limit-order-sdk'
 import { ILimitOrder, IWatchPair } from '../models/models'
 import { utils, Contract, BigNumber } from 'ethers'
 import { MyProvider } from '../utils/myProvider'
 import { Database } from '../database/database'
 import { MyLogger } from '../utils/myLogger'
 import HELPER from '../abis/helper'
+import { ILimitOrderData, LimitOrder } from '../utils/limitOrderData'
 
 /**
  *
@@ -87,7 +87,7 @@ export async function getOrderStatus(
   let info: {
     filledAmount: BigNumber
     cancelled: boolean
-    makersBentoBalance?: BigNumber
+    makersCoffinBalance?: BigNumber
     approvedMasterContract?: boolean
   }[]
 
@@ -109,7 +109,7 @@ export async function getOrderStatus(
 
     _limitOrder.filledAmount = filledAmount.toString()
 
-    if (fetchUserBalance) _limitOrder.userBalance = info[i].makersBentoBalance.toString()
+    if (fetchUserBalance) _limitOrder.userBalance = info[i].makersCoffinBalance.toString()
 
     const limitOrder = LimitOrder.getLimitOrder(_limitOrder.order)
 

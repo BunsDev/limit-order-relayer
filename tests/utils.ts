@@ -1,5 +1,4 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { ChainId } from "@sushiswap/core-sdk";
 import { expect } from "chai";
 import { fetchLimitOrderPairs } from "../src/relayer-config/pairs";
 import { NetworkPrices } from "../src/utils/networkPrices";
@@ -8,6 +7,8 @@ import {
   OrderStatus,
   refreshGroupOrderStatus,
 } from "../src/orders/validOrders";
+
+import { ChainId } from '../src/utils/constants'
 
 describe("Utils", () => {
   it("Should get price", async () => {

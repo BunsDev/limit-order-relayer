@@ -1,10 +1,9 @@
-import { ChainId, WNATIVE_ADDRESS } from '@sushiswap/core-sdk'
 import axios, { AxiosResponse } from 'axios'
 import { BigNumber } from 'ethers'
 import { PriceUpdate, PRICE_MULTIPLIER } from '../pairs/pairUpdates'
+import { ChainId, WNATIVE_ADDRESS } from './constants'
 import { safeAwait } from './myAwait'
 import { MyProvider } from './myProvider'
-
 export class NetworkPrices {
   // use 1 min cache to help prevent rate limits
   cache: {
@@ -154,44 +153,45 @@ export class NetworkPrices {
         if (tokenUsd && maticUsd) {
           tokenPrice = tokenUsd / maticUsd
         }
-      } else if (chainId === ChainId.AVALANCHE) {
-        let avaxUsd
-
-        if (this.cache['wavax']?.timestamp > new Date().getTime() - 60000) {
-          avaxUsd = this.cache['wavax']?.value
-        } else {
-          avaxUsd = (
-            await CoingeckoRequests.Instance.makeRequest(
-              `https://api.coingecko.com/api/v3/coins/avalanche-2?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
-            )
-          )?.data?.market_data?.current_price.usd
-
-          this.cache['wavax'] = {
-            timestamp: new Date().getTime(),
-            value: avaxUsd,
-          }
-        }
-
-        let tokenUsd
-
-        if (isUSD) {
-          tokenUsd = 1
-        } else {
-          tokenUsd = (
-            await (tokenMainnetAddress
-              ? CoingeckoRequests.Instance.makeRequest(
-                  `https://api.coingecko.com/api/v3/coins/ethereum/contract/${tokenMainnetAddress}`
-                )
-              : CoingeckoRequests.Instance.makeRequest(
-                  `https://api.coingecko.com/api/v3/coins/avalanche-2/contract/${tokenAddress}`
-                ))
-          )?.data?.market_data?.current_price.usd
-        }
-
-        if (tokenUsd && avaxUsd) {
-          tokenPrice = tokenUsd / avaxUsd
-        }
       }
+      // else if (chainId === ChainId.AVALANCHE) {
+      //   let avaxUsd
+
+      //   if (this.cache['wavax']?.timestamp > new Date().getTime() - 60000) {
+      //     avaxUsd = this.cache['wavax']?.value
+      //   } else {
+      //     avaxUsd = (
+      //       await CoingeckoRequests.Instance.makeRequest(
+      //         `https://api.coingecko.com/api/v3/coins/avalanche-2?localization=false&tickers=false&market_data=true&community_data=false&developer_data=false&sparkline=false`
+      //       )
+      //     )?.data?.market_data?.current_price.usd
+
+      //     this.cache['wavax'] = {
+      //       timestamp: new Date().getTime(),
+      //       value: avaxUsd,
+      //     }
+      //   }
+
+      //   let tokenUsd
+
+      //   if (isUSD) {
+      //     tokenUsd = 1
+      //   } else {
+      //     tokenUsd = (
+      //       await (tokenMainnetAddress
+      //         ? CoingeckoRequests.Instance.makeRequest(
+      //             `https://api.coingecko.com/api/v3/coins/ethereum/contract/${tokenMainnetAddress}`
+      //           )
+      //         : CoingeckoRequests.Instance.makeRequest(
+      //             `https://api.coingecko.com/api/v3/coins/avalanche-2/contract/${tokenAddress}`
+      //           ))
+      //     )?.data?.market_data?.current_price.usd
+      //   }
+
+      //   if (tokenUsd && avaxUsd) {
+      //     tokenPrice = tokenUsd / avaxUsd
+      //   }
+      // }
     } catch (e) {
       throw new Error(`Couldn't fetch eth price of token: ${tokenAddress} ${e.toString().substring(0, 400)} ...`)
     }

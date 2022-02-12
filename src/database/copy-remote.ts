@@ -1,12 +1,13 @@
 /* script used to seed the relayers database with orders */
 
 import axios from 'axios'
-import { ILimitOrderData, LAMBDA_URL } from '@sushiswap/limit-order-sdk'
 import dotenv from 'dotenv'
 import { Database } from './database'
 import { ILimitOrder } from '../models/models'
 import { getOrderPriceString } from '../utils/price'
-import { refreshOrderStatus } from '../orders/validOrders'
+// import { refreshOrderStatus } from '../orders/validOrders'
+import { LAMBDA_URL } from '../utils/constants'
+import { ILimitOrderData } from '../utils/limitOrderData'
 
 dotenv.config()
 

@@ -1,13 +1,13 @@
 import { BigNumber } from 'ethers'
-import { ChainId } from '@sushiswap/core-sdk'
-import { FillLimitOrder, ADVANCED_RECEIVER_ADDRESS, LimitOrder } from '@sushiswap/limit-order-sdk'
 import { IExecutedOrder } from '../models/models'
 import { ExecutableOrder } from './profitability'
-import DEFAULT_TOKEN_LIST from '@sushiswap/default-token-list'
+import DEFAULT_TOKEN_LIST from '../abis/tokenList.json'
 import { getDesiredProfitToken } from '../relayer-config/pairs'
 import { MyProvider } from '../utils/myProvider'
 import { MyLogger } from '../utils/myLogger'
 import { safeAwait } from '../utils/myAwait'
+import { FillLimitOrder, LimitOrder } from '../utils/limitOrderData'
+import { ADVANCED_RECEIVER_ADDRESS } from '../utils/constants'
 
 export async function executeOrders(ordersData: ExecutableOrder[], gasPrice: BigNumber): Promise<IExecutedOrder[]> {
   if (!process.env.CHAINID) {

@@ -1,4 +1,4 @@
-# Execute limit orders on Sushiswap
+# Execute limit orders on SoulSwap
 
 ## Run service
 
@@ -7,7 +7,6 @@
 ## Run service using forever
 
 `npm run forever-<chainName>`
-
 
 ## Test service
 

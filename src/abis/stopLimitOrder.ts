@@ -2,7 +2,7 @@ export default [
   {
     inputs: [
       { internalType: 'uint256', name: '_externalOrderFee', type: 'uint256' },
-      { internalType: 'contract IBentoBoxV1', name: '_bentoBox', type: 'address' },
+      { internalType: 'contract ICoffinBox', name: '_coffinBox', type: 'address' },
     ],
     stateMutability: 'nonpayable',
     type: 'constructor',

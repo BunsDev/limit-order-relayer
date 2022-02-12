@@ -1,5 +1,4 @@
 import { BigNumber } from "@ethersproject/bignumber";
-import { ChainId } from "@sushiswap/core-sdk";
 import { expect } from "chai";
 import {
   MockDatabase,
@@ -23,6 +22,7 @@ import {
   getOrderPriceString,
   getMinRate,
 } from "../src/utils/price";
+import { ChainId } from "../src/utils/constants";
 
 const daiBalance = BigNumber.from("102817581502091247236234371"); // 102 m
 const wethBalance = BigNumber.from("50212189021597534681275"); // 50 k ~ price is 2047 DAI per WETH

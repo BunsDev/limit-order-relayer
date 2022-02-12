@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { ChainId } from '@sushiswap/core-sdk'
+import { ChainId } from '../utils/constants'
 
 dotenv.config()
 
@@ -78,26 +78,41 @@ export const _limitOrderPairs = {
     ['WMATIC', 'CRV'],
     ['JPYC', 'USDT'],
   ],
-  [ChainId.AVALANCHE]: [
-    ['wMEMO', 'MIM'],
-    ['MIM', 'WAVAX'],
-    ['MIM', 'USDC'],
-    ['MIM', 'BSGG'],
-    ['USDC', 'WAVAX'],
-    ['SPELL', 'WAVAX'],
-    ['sSPELL', 'SPELL'],
-    ['WETH', 'WAVAX'],
-    ['wMEMO', 'WAVAX'],
-    ['SUSHI', 'WAVAX'],
-    ['WBTC', 'WAVAX'],
-    ['USDT', 'WAVAX'],
-  ],
+  [ChainId.FANTOM]: [
+    ['WFTM', 'USDC'],
+    ['WFTM', 'DAI'],
+    ['WFTM', 'WETH'],
+    ['WFTM', 'WBTC'],
+    ['WFTM', 'CRV'],
+    ['WFTM', 'LUX'],
+    ['WFTM', 'WLUM'],
+    ['WFTM', 'SOUL'],
+    ['WFTM', 'SEANCE'],
+  ]
+
+  // [ChainId.AVALANCHE]: [
+  //   ['wMEMO', 'MIM'],
+  //   ['MIM', 'WAVAX'],
+  //   ['MIM', 'USDC'],
+  //   ['MIM', 'BSGG'],
+  //   ['USDC', 'WAVAX'],
+  //   ['SPELL', 'WAVAX'],
+  //   ['sSPELL', 'SPELL'],
+  //   ['WETH', 'WAVAX'],
+  //   ['wMEMO', 'WAVAX'],
+  //   ['SUSHI', 'WAVAX'],
+  //   ['WBTC', 'WAVAX'],
+  //   ['USDT', 'WAVAX'],
+  // ],
 } as { [chainId in ChainId]: string[][] }
 
 export const getDesiredProfitToken = function (chainId: ChainId): string[] {
   if (chainId === ChainId.MATIC) {
     return ['WMATIC', 'WETH', 'SUSHI', 'WBTC', 'USDC', 'DAI', 'USDT']
-  } else if (chainId == ChainId.AVALANCHE) {
-    return ['WAVAX', 'TIME', 'MIM']
+  } else if (chainId == ChainId.FANTOM) {
+    return ['WFTM', 'USDC', 'SOUL']
   }
+  // } else if (chainId == ChainId.AVALANCHE) {
+  //   return ['WAVAX', 'TIME', 'MIM']
+  // }
 }

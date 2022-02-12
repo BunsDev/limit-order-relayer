@@ -13,7 +13,7 @@ export interface ExecutableOrder {
 }
 
 /**
- * @param priceUpdate Current state of a Sushiswap pool
+ * @param priceUpdate Current state of SoulSwap pool
  * @param orders Orders that can be executed & if gas is 0 are already profitable
  * @returns Array of orders that when executed will net some profit for the relayer
  */
