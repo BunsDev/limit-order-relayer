@@ -2,7 +2,7 @@ import { AbstractCurrency } from './AbstractCurrency'
 import { Currency } from './Currency'
 import invariant from 'tiny-invariant'
 import { validateAndParseAddress } from '../utils/validateAndParseAddress'
-import { ChainId } from '../utils/constants'
+import { ChainId } from '../entities/ChainId';
 
 /**
  * Represents an ERC20 token with a unique address and some metadata.

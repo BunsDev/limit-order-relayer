@@ -1,5 +1,5 @@
 import { Document } from 'mongoose'
-import { ChainId } from '../utils/constants';
+import { ChainId } from '../entities/ChainId';
 import { ILimitOrderData } from '../utils/limitOrderData';
 
 export interface IWatchPair {

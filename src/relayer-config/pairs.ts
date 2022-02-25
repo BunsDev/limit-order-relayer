@@ -1,5 +1,5 @@
 import dotenv from 'dotenv'
-import { ChainId } from '../utils/constants'
+import { ChainId } from '../entities/ChainId';
 
 dotenv.config()
 

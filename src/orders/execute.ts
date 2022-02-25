@@ -14,9 +14,9 @@ export async function executeOrders(ordersData: ExecutableOrder[], gasPrice: Big
     throw Error('No chain id set for environment')
   }
 
-  if (!(process.env.CHAINID in ADVANCED_RECEIVER_ADDRESS)) {
-    throw Error(`No advanced receiver address for chain id ${process.env.CHAINID}`)
-  }
+  // if (!(process.env.CHAINID in ADVANCED_RECEIVER_ADDRESS)) {
+  //   throw Error(`No advanced receiver address for chain id ${process.env.CHAINID}`)
+  // }
 
   const forceExecution = false
 

@@ -4,10 +4,10 @@ import { NonceManager } from '@ethersproject/experimental';
 import { Signer } from '@ethersproject/abstract-signer';
 import { Transaction } from '@ethersproject/transactions';
 import { Web3Provider } from '@ethersproject/providers';
-import { ChainId } from './constants';
 import { CurrencyAmount } from '../entities/CurrencyAmount';
 import { Token } from '../entities/Token';
 import { Price } from '../entities/Price';
+import { ChainId } from '../entities/ChainId';
 export interface ILimitOrderData {
     maker: string;
     tokenIn: string;

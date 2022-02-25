@@ -5,7 +5,7 @@ import { getPairAddress } from '../utils/pairAddress'
 import { MyProvider } from '../utils/myProvider'
 import { getPoolBalances } from './pairUpdates'
 import { MyLogger } from '../utils/myLogger'
-import { ChainId } from '../utils/constants'
+import { ChainId } from '../entities/ChainId';
 
 interface IToken {
   chainId: number

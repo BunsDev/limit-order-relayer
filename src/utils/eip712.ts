@@ -1,5 +1,5 @@
 import { Web3Provider } from '@ethersproject/providers';
-import { ChainId } from './constants';
+import { ChainId } from '../entities/ChainId';
 export interface Domain {
     name: string;
     chainId: ChainId;

@@ -1,7 +1,8 @@
 import axios, { AxiosResponse } from 'axios'
 import { BigNumber } from 'ethers'
+import { ChainId } from '../entities/ChainId'
 import { PriceUpdate, PRICE_MULTIPLIER } from '../pairs/pairUpdates'
-import { ChainId, WNATIVE_ADDRESS } from './constants'
+import { WNATIVE_ADDRESS } from './constants'
 import { safeAwait } from './myAwait'
 import { MyProvider } from './myProvider'
 export class NetworkPrices {
@@ -28,9 +29,9 @@ export class NetworkPrices {
     token0EthPrice: BigNumber
     token1EthPrice: BigNumber
   }> {
-    if (!(chainId in WNATIVE_ADDRESS)) {
-      throw Error(`No wrapped native address for ${chainId}`)
-    }
+    // if (!(chainId in WNATIVE_ADDRESS)) {
+    //   throw Error(`No wrapped native address for ${chainId}`)
+    // }
 
     const gasPrice = await this.getWeiGasPrice(chainId)
 
