@@ -111,7 +111,7 @@ export class NetworkPrices {
     let tokenPrice: any
 
     try {
-      if (chainId == ChainId.ETHEREUM) {
+      if (chainId == 1) {
         const token0EthPrice = await CoingeckoRequests.Instance.makeRequest(
           `https://api.coingecko.com/api/v3/coins/ethereum/contract/${tokenAddress}`
         )
@@ -154,7 +154,7 @@ export class NetworkPrices {
         if (tokenUsd && maticUsd) {
           tokenPrice = tokenUsd / maticUsd
         }
-    } else if (chainId === ChainId.FANTOM) {
+    } else if (chainId === 250) {
       let ftmUSD
 
       if (this.cache['wftm']?.timestamp > new Date().getTime() - 60000) {

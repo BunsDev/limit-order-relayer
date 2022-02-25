@@ -8,7 +8,7 @@ import {
   refreshGroupOrderStatus,
 } from "../src/orders/validOrders";
 
-import { ChainId } from '../src/utils/constants'
+// import { ChainId } from '../src/utils/constants'
 
 describe("Utils", () => {
   it("Should get price", async () => {
@@ -26,7 +26,7 @@ describe("Utils", () => {
   });
 
   it("Should get gas price", async () => {
-    const supportedChains = [ChainId.ETHEREUM, ChainId.MATIC];
+    const supportedChains = [1, 137, 250];
     const prices = await Promise.all(
       supportedChains.map((chain) => {
         return new NetworkPrices().getWeiGasPrice(chain);

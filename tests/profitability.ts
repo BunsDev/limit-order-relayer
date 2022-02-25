@@ -22,7 +22,7 @@ import {
   getOrderPriceString,
   getMinRate,
 } from "../src/utils/price";
-import { ChainId } from "../src/utils/constants";
+// import { ChainId } from "../src/utils/constants";
 
 const daiBalance = BigNumber.from("102817581502091247236234371"); // 102 m
 const wethBalance = BigNumber.from("50212189021597534681275"); // 50 k ~ price is 2047 DAI per WETH
@@ -445,7 +445,7 @@ describe("Profitability", () => {
 
   it("Should fetch external data", async () => {
     const { gasPrice, token0EthPrice, token1EthPrice } =
-      await new NetworkPrices().getPrices(priceUpdate, ChainId.ETHEREUM);
+      await new NetworkPrices().getPrices(priceUpdate, 1);
     expect(!!gasPrice && !!token0EthPrice && !!token1EthPrice).to.be.true;
     expect(gasPrice.gt("0") && token0EthPrice.gt("0") && token1EthPrice.gt("0"))
       .to.be.true;

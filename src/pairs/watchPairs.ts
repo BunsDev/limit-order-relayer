@@ -26,7 +26,7 @@ export interface ITokenList {
 
 export const getLimitOrderPairs = async (chainId: number): Promise<IWatchPair[]> => {
   const tokens = (DEFAULT_TOKEN_LIST as ITokenList).tokens.filter((token) => token.chainId === chainId)
-  const tokensMainnet = (DEFAULT_TOKEN_LIST as ITokenList).tokens.filter((token) => token.chainId === ChainId.ETHEREUM)
+  const tokensMainnet = (DEFAULT_TOKEN_LIST as ITokenList).tokens.filter((token) => token.chainId === 1)
 
   const watchPairs: IWatchPair[] = []
   const limitOrderPairs = await fetchLimitOrderPairs(chainId)
